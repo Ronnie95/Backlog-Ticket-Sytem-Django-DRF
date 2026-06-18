@@ -14,7 +14,7 @@ class ticket_submissions(models.Model):
         ("MEDIUM", "medium"),
         ("HIGH", "high"),
     )
-    status = models.CharField(max_length=20, choices=priority_choices, default='Low')
+    priority = models.CharField(max_length=20, choices=priority_choices, default='Low')
 
     def __str__(self):
         return self.date
