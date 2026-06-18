@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class ticket_submissions(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     date = models.DateField()
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
@@ -13,12 +14,14 @@ class ticket_submissions(models.Model):
         ("MEDIUM", "medium"),
         ("HIGH", "high"),
     )
-#add user related fields
+    status = models.CharField(max_length=20, choices=priority_choices, default='Low')
+
     def __str__(self):
         return self.date
 
 
 class projects(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     date = models.DateField()
     project_name = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
@@ -29,5 +32,6 @@ class projects(models.Model):
         ('not_complete', 'Not Complete'),
     )
     status = models.CharField(max_length=20, choices=status_choices, default='not_complete')
-    #add user related field and one to many relationship
+    tickets = models.ForeignKey(ticket_submissions, on_delete=models.CASCADE, related_name="projects") #watch for this
 
+    #add the models to admin.py when complete 
