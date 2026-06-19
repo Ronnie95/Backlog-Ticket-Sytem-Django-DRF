@@ -1,18 +1,20 @@
 from rest_framework.serializers import ModelSerializer
-from rest_framework import serializers
-from .models import ticket_submissions, projects
+from .models import ticket_submissions, projects, Comments
 
 class TicketSerializer(ModelSerializer):
     class Meta:
         model = ticket_submissions
-        fields = ('id', 'date', 'title', 'description', 'priority', 'user') 
+        fields = ('id','created_by','date', 'title', 'description', 'priority', 'project') 
 
 
 
 class ProjectSerializer(ModelSerializer):
     class Meta:
         model = projects
-        fields = ('id', 'date', 'project_name', 'description', 'due_date', 'status', 'tickets' 'user') 
+        fields = ('id', 'created_by', 'date', 'project_name', 'description', 'due_date', 'status',) 
 
 
-#add user serializer
+
+class CommentsSerializer(ModelSerializer):
+    model = Comments
+    fields = ('id', 'ticket_submission', 'authors', 'text', 'created_at')
