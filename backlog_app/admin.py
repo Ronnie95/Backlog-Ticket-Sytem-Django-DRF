@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import projects, ticket_submissions, Comments
+from .models import Projects, Ticket_submissions, Comments
 
 # Register your models here.
 
 
-admin.site.register(projects),
-admin.site.register(ticket_submissions),
+admin.site.register(Projects),
+admin.site.register(Ticket_submissions),
 admin.site.register(Comments)
