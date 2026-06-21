@@ -1,15 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.db import models
+from django.contrib.auth.models import User
+
 
 class UserProfile(models.Model):
-    role_choices = (
-        ("SUPERVISOR", "supervisor"), 
-        ("SWE", "swe"),
-        ("TEAM MEMBER", "team member")
-    )
-    role = models.CharField(max_length=20, choices=role_choices)
 
+    ROLE_CHOICES = (
+        ("SUPERVISOR", "Supervisor"),
+        ("SWE", "Software Engineer"),
+        ("TEAM_MEMBER", "Team Member"),
+    )
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE
+    )
+
+    role = models.CharField(
+        max_length=20,
+        choices=ROLE_CHOICES
+    )
+
+    def __str__(self):
+        return self.user.username
 
 class Projects(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
