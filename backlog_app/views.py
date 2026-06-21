@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from .models import Projects, Comments, Ticket_submissions
+from .models import Projects, Comments, Ticket_submissions, User
 from rest_framework.viewsets import ModelViewSet
-from .serializers import ProjectSerializer, TicketSerializer, CommentsSerializer
+from .serializers import ProjectSerializer, TicketSerializer, CommentsSerializer, RegisterSerializer
 
 
 # Create your views here.
-
+class UserViewSet(ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
 
 class ProjectViewSet(ModelViewSet):
     queryset = Projects.objects.all()
