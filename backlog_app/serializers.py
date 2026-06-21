@@ -2,7 +2,7 @@ from rest_framework.serializers import ModelSerializer
 from .models import Ticket_submissions, Projects, Comments, UserProfile
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer
-
+from rest_framework import serializers
 
 
 

@@ -38,6 +38,7 @@ class CommentsViewSet(ModelViewSet):
 #     permission_classes = [IsTeamMember]
 
 class TicketViewSet(ModelViewSet):
+    queryset = Ticket_submissions.objects.all()
     serializer_class = TicketSerializer
     permission_classes = [IsAuthenticated]
 
