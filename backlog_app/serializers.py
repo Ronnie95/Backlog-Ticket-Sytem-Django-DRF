@@ -1,6 +1,26 @@
 from rest_framework.serializers import ModelSerializer
 from .models import Ticket_submissions, Projects, Comments
 
+from django.contrib.auth.models import User
+from rest_framework.serializers import ModelSerializer
+
+class RegisterSerializer(ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "email",
+            "password"
+        ]
+        extra_kwargs = {
+            "password": {"write_only": True}
+        }
+
+    def create(self, validated_data):
+        return User.objects.create_user(**validated_data)
+
+
 class TicketSerializer(ModelSerializer):
     class Meta:
         model = Ticket_submissions
