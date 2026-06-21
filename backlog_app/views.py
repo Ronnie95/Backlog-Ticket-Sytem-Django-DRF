@@ -2,6 +2,12 @@ from django.shortcuts import render
 from .models import Projects, Comments, Ticket_submissions, User
 from rest_framework.viewsets import ModelViewSet
 from .serializers import ProjectSerializer, TicketSerializer, CommentsSerializer, RegisterSerializer
+from rest_framework import generics
+
+
+
+class RegisterView(generics.CreateAPIView):
+    serializer_class = RegisterSerializer
 
 
 # Create your views here.
