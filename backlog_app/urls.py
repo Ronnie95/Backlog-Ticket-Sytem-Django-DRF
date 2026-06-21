@@ -9,7 +9,6 @@ router.register(r'projects', ProjectViewSet)
 router.register(r'comments', CommentsViewSet)
 
 
-
 urlpatterns = [
 
     path('',include(router.urls)),
