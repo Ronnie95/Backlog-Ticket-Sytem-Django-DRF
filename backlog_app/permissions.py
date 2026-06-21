@@ -25,5 +25,5 @@ class IsTeamMember(BasePermission):
     def has_permission(self, request, view):
         return (
             request.user.is_authenticated
-            and request.user.userprofile.role == "Team Member"
+            and request.user.userprofile.role == "TEAM_MEMBER"
         )
