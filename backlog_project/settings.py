@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'backlog_app',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 
 ]
 
