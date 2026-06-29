@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 
+
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
@@ -22,7 +23,7 @@ class ProjectViewSet(ModelViewSet):
     queryset = Projects.objects.all()
     serializer_class = ProjectSerializer
     permission_classes = [IsSupervisor]
-
+    
 
 class CommentsViewSet(ModelViewSet):
     queryset = Comments.objects.all()
