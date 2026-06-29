@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Projects, Comments, Ticket_submissions, User
 from rest_framework.viewsets import ModelViewSet
-from .serializers import ProjectSerializer, TicketSerializer, CommentsSerializer, RegisterSerializer, LoginSerializer
+from .serializers import ProjectSerializer, TicketSerializer, CommentsSerializer, RegisterSerializer
 from rest_framework import generics
 from .permissions import IsSoftwareEngineer, IsSupervisor, IsTeamMember
 from rest_framework.permissions import IsAuthenticated
@@ -12,9 +12,6 @@ from rest_framework.permissions import IsAuthenticated
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
-
-class LoginView(generics.CreateAPIView):
-    serializer_class = LoginrSerializer
 
 # Create your views here.
 class UserViewSet(ModelViewSet):

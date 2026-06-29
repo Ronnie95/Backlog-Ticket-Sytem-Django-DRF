@@ -55,35 +55,7 @@ class RegisterSerializer(ModelSerializer):
         return user
     
 
-    class LoginSerializer(ModelSerializer):
-
-    role = serializers.CharField(write_only=True)
-
-    class Meta:
-        model = User
-        fields = [
-            "email",
-            "password",
-            
-        ]
-        extra_kwargs = {
-            "password": {"write_only": True}
-        }
-
-    def create(self, validated_data):
-
-        role = validated_data.pop("role")
-
-        user = User.objects.create_user(
-            **validated_data
-        )
-
-        UserProfile.objects.create(
-            user=user,
-            role=role
-        )
-
-        return user
+    
 
 class TicketSerializer(ModelSerializer):
     class Meta:
