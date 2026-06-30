@@ -74,3 +74,5 @@ class ProjectSerializer(ModelSerializer):
 class CommentsSerializer(ModelSerializer):
     model = Comments
     fields = ('id', 'ticket_submission', 'authors', 'text', 'created_at')
+
+

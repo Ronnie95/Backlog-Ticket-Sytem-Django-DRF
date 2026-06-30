@@ -54,7 +54,14 @@ class TicketViewSet(ModelViewSet):
             return Ticket_submissions.objects.filter(
                 assigned_to=user
             )
+        
+        if role == "TEAM_MEMBER":
+            return Ticket_submissions.objects.filter(
+                created_by=user
+            )
 
-        return Ticket_submissions.objects.filter(
-            created_by=user
-        )
+        # return Ticket_submissions.objects.filter(
+        #     created_by=user
+        # )
+
+        return Ticket_submissions.objects.none()
