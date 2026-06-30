@@ -67,7 +67,7 @@ class TicketSerializer(ModelSerializer):
 class ProjectSerializer(ModelSerializer):
     class Meta:
         model = Projects
-        fields = ('id', 'created_by', 'date', 'project_name', 'description', 'due_date', 'status',) 
+        fields = ('id', 'created_by', 'date', 'project_name', 'description', 'dueDate', 'status',) 
 
 
 
